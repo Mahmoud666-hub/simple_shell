@@ -36,7 +36,7 @@ int main(void)
 				}
 				else if (z != 0)
 				{wait(NULL);
-					_free(c, e);
+					/*_free(c, e);*/
 				}
 			}
 		}
