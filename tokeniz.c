@@ -57,11 +57,10 @@ char *paath(char *s, char *b)
 	char *a = NULL;
 	char *tok = NULL;
 
-	if (s[0] == '/')
+	/*if (s[0] == '/')
 	{
 		return (s);
-	}
-
+	}*/
 	tok = _strtok(b, ":");
 
 	while (tok != NULL)

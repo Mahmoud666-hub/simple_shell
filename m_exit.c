@@ -13,16 +13,9 @@ void m_exit(char **e, int d, char *k, char *c)
 	{
 		if (e[1] == NULL)
 		{
-			if (d == 1)
-			{
-				
-				_free(k, e);
-				_free(c, NULL);
-				exit(0);
-			}
 			_free(k, e);
 			_free(c, NULL);
-			exit(127);
+			exit(d);
 		}
 		else
 		while (e[1][l] != '\0')
@@ -49,20 +42,9 @@ void m_exit(char **e, int d, char *k, char *c)
 */
 void ctrl_d(int x, char *k)
 {
-
-	if (x == 1)
-	{
-		_printf("\n");
-		
-		_free(k, NULL);
-		exit(0);
-	}
-	else if (x > 1)
-	{
-		_printf("\n");
-		_free(k, NULL);
-		exit(127);
-	}
+	_printf("\n");
+	_free(k, NULL);
+	exit(x);
 }
 
 /**
