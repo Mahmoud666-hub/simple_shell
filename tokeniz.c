@@ -24,17 +24,21 @@ char **_too(char *s)
 
 	if (a == 0)
 	{
+		p = NULL;
+		u = NULL;
 		return (NULL);
 	}
-	p = malloc((a + 1) * sizeof(char *));
+
+	p = malloc((a + 2) * sizeof(char *));
 	if (p == NULL)
-	{free(p);
+	{
 		return (NULL);
 	}
 	i = 0;
 	u = _strtok(s, " ");
 	while (u != NULL)
-	{p[i] = strdup(u);
+	{
+		p[i] = strdup(u);
 		u = _strtok(NULL, " ");
 		i++;
 	}

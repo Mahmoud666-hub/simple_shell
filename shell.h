@@ -10,21 +10,25 @@
 #include<sys/wait.h>
 extern char **environ;
 
-
 ssize_t _getline(char **p, size_t *n, FILE *f);
 char *_strtok(char *s, const char *e);
 char **_too(char *s);
 int _printf(const char *format, ...);
 void ctrl_d(int x, char *k);
 int _atoi(char *h);
+
 void m_exx(char *u, char **e);
+
 char *paath(char *s, char *b);
 
-void m_exit(char **e, int d, char *k);
+void m_exit(char **e, int d, char *k, char *c);
+
 void _free(char *s, char **e);
 
 char *pathen(char **t);
+
 void _err(int w, char *j, char *c);
+
 char *_scan(char *s);
 
 

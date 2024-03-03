@@ -5,7 +5,7 @@
  * @e: after tok
  * @d: counter
 */
-void m_exit(char **e, int d, char *k)
+void m_exit(char **e, int d, char *k, char *c)
 {
 	int a = 0, l = 0;
 
@@ -15,10 +15,13 @@ void m_exit(char **e, int d, char *k)
 		{
 			if (d == 1)
 			{
+				
 				_free(k, e);
+				_free(c, NULL);
 				exit(0);
 			}
 			_free(k, e);
+			_free(c, NULL);
 			exit(127);
 		}
 		else
@@ -32,6 +35,7 @@ void m_exit(char **e, int d, char *k)
 		else
 		{
 			_free(k, e);
+			_free(c, NULL);
 			exit(a);
 		}
 	}
@@ -45,9 +49,11 @@ void m_exit(char **e, int d, char *k)
 */
 void ctrl_d(int x, char *k)
 {
+
 	if (x == 1)
 	{
 		_printf("\n");
+		
 		_free(k, NULL);
 		exit(0);
 	}
@@ -71,7 +77,6 @@ void _free(char *s, char **e)
 	if (s != NULL)
 	{
 		free(s);
-		s = NULL;
 	}
 
 	if (e != NULL)
@@ -79,12 +84,12 @@ void _free(char *s, char **e)
 		for (n = 0; e[n] != NULL; n++)
 		{
 			free(e[n]);
-			e[n] = NULL;
 		}
 		if (e != NULL)
 		{
 			free(e);
 		}
-		e = NULL;
+		
 	}
+
 }

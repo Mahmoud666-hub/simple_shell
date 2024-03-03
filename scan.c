@@ -1,9 +1,11 @@
 #include"shell.h"
+
 /**
  * _scan - handle #
  * @s: parameter
  * Return: pointer
 */
+
 char *_scan(char *s)
 {
 	int i = 0;
@@ -13,12 +15,15 @@ char *_scan(char *s)
 	{
 		if (s[i] == '#' && s[i - 1] == ' ')
 		{
-			b = strtok(s, "#");
-			break;
+			b = _strtok(s, "#");
+
+			return (b);
 		}
 		i++;
 	}
-	if (b == NULL)
+
+
+	if (b == NULL && s[0] != '#')
 	{
 		return (s);
 	}
