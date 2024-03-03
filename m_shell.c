@@ -68,7 +68,8 @@ if (isatty(STDIN_FILENO))
 		}
 	}
 }
-
+_free(k, NULL);
+k = NULL;
 	if ((_getline(&c, &n, stdin)) == -1)
 		 {_free(c, NULL);
 		 c = NULL;
@@ -86,6 +87,9 @@ if (isatty(STDIN_FILENO))
 		if (e == NULL)
 		 {exit(127);
 		}
+		x = 1;
+		_free(c, NULL);
+		c = NULL;
 		m_exit(e, x, k, c);
 	if (e[0][0] != '/')
 		 {
@@ -102,7 +106,7 @@ if (isatty(STDIN_FILENO))
 		else
 		{
 		_free(u, e);
-		exit(127);
+		exit(2);
 		}
 
 _free(u,e);
