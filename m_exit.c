@@ -8,7 +8,7 @@
 void m_exit(char **e, int d, char *k, char *c)
 {
 	int a = 0, l = 0;
-
+	(void)c;
 	if ((strcmp(e[0], "exit")) == 0)
 	{
 		if (e[1] == NULL)
@@ -24,7 +24,6 @@ void m_exit(char **e, int d, char *k, char *c)
 		a = _atoi(e[1]);
 		if (a == -1)
 		{_printf("hsh: %d: exit: Illegal number: %s\n", d, e[1]);
-
 		}
 		else
 		{

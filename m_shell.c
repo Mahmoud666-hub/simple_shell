@@ -45,59 +45,26 @@ if (isatty(STDIN_FILENO))
 		 if (k == NULL)
 		 {k = strdup(r);
 		 }
+
 		 if (e[0][0] != '/')
 		 {
 			u = paath(z, k);
 		 }
 		 else
-		 u =strdup(e[0]);
+		 {
+			if ((access(e[0], X_OK)) == 0)
+			{
+		 		u =strdup(e[0]);
+			}
+			else
+			{
+			u = NULL;}
+		 }
+
 		 _free(k,NULL);
 		 k = NULL;
-
-		if ((access(u, X_OK)) == 0)
-		{m_exx(u, e);
-			_free(u, e);
-			e = NULL;
-			u = NULL;
-		}
-		else
-		{_err(d, e[0], z);
-			_free(NULL, e);
-			e = NULL;
-			x = 127;
-		}
-	}
-}
-_free(k, NULL);
-k = NULL;
-	if ((_getline(&c, &n, stdin)) == -1)
-		 {_free(c, NULL);
-		 c = NULL;
-			ctrl_d(x, k);
-		}
-	t = strlen(c);
-		if (c[t - 1] == '\n')
-	     {c[t - 1] = '\0';
-		 }
-		z = _scan(c);
-		if (z == NULL)
-		{exit(127);
-		}
-		e = _too(z);
-		if (e == NULL)
-		 {exit(127);
-		}
-		x = 1;
-		_free(c, NULL);
-		c = NULL;
-		m_exit(e, x, k, c);
-	if (e[0][0] != '/')
-		 {
-			u = paath(z, r);
-		 }
-		 else
-		 u =strdup(e[0]);
-		 if ((access(u, X_OK)) == 0)
+		 
+		if (u != NULL)
 		{m_exx(u, e);
 			_free(u, e);
 			e = NULL;
@@ -105,15 +72,83 @@ k = NULL;
 		}
 		else
 		{
-		_free(u, e);
-		exit(2);
+			_err(d, e[0], z);
+			_free(NULL, e);
+			e = NULL;
+
+			x = 127;
+		}
+	}
+}
+
+_free(k, NULL);
+k = NULL;
+
+	if ((_getline(&c, &n, stdin)) == -1)
+		 {_free(c, NULL);
+		 c = NULL;
+			ctrl_d(x, k);
+		}
+		t = strlen(c);
+		if (c[t - 1] == '\n')
+	     {c[t - 1] = '\0';
+		 }
+
+		z = _scan(c);
+
+		if (z == NULL)
+		{exit(127);
 		}
 
-_free(u,e);
-_free(c, NULL);
-_free(k, NULL);
+		/*_free(c, NULL);*/
+		e = _too(z);
 
-	return (0); }
+		if (e == NULL)
+		 {exit(127);
+		}
+
+		x = 1;
+		m_exit(e, x, k, c);
+
+		if (e[0][0] != '/')
+		 {
+			u = paath(z, k);
+		 }
+		 else
+		 {
+			if ((access(e[0], X_OK)) == 0)
+			{
+		 		u =strdup(e[0]);
+			}
+			else
+			{
+			u = NULL;
+			}
+		 }
+
+		 _free(k,NULL);
+		 k = NULL;
+		 
+		if (u != NULL)
+		{m_exx(u, e);
+			_free(u, e);
+			e = NULL;
+			u = NULL;
+		}
+		else
+		{
+			_free(NULL, e);
+			e = NULL;
+			x = 127;
+			_free(c, NULL);
+			exit(2);
+		}
+
+/*_free(u,e);*/
+/*_free(c, NULL);*/
+/*_free(k, NULL);*/
+	return (0);
+}
 
 /**
  * _err - error

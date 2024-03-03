@@ -76,11 +76,15 @@ char *paath(char *s, char *b)
 			}
 			else
 			_free(a, NULL);
+			a = NULL;
 			tok = _strtok(NULL, ":");
 			/*_free(a, NULL);*/
 			/*a = NULL;*/
 	}
-
+if (a != NULL)
+{
+	_free(a, NULL);
+}
 return (NULL);
 }
 
