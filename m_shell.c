@@ -132,6 +132,7 @@ k = NULL;
 		if (u != NULL)
 		{m_exx(u, e);
 			_free(u, e);
+			_free(c, NULL);
 			e = NULL;
 			u = NULL;
 		}
