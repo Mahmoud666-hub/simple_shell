@@ -86,6 +86,7 @@ if (isatty(STDIN_FILENO))
 		if (e == NULL)
 		 {exit(127);
 		}
+		m_exit(e, x, k, c);
 	if (e[0][0] != '/')
 		 {
 			u = paath(z, r);
