@@ -97,7 +97,9 @@ k = NULL;
 		z = _scan(c);
 
 		if (z == NULL)
-		{exit(127);
+		{
+			_free(c, NULL);
+			exit(0);
 		}
 
 		e = _too(z);
