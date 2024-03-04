@@ -126,10 +126,12 @@ char *u_thass(char **e, char *z, char *r)
 		if ((access(e[0], X_OK)) == 0)
 		{
 			u = strdup(e[0]);
+			return (u);
 		}
 		else
 		{
 			u = NULL;
+			return (u);
 		}
 	}
 return (u);
@@ -144,15 +146,16 @@ return (u);
 void existance(char **e, char *c, char *u)
 {
 	int x = 0;
-	if(e[1] != NULL)
-	{x = access(e[1], F_OK);
+	/*if(e[1] != NULL)*/
+	/*{x = access(e[1], F_OK);*/
+	/*printf("x---(%d)\n", x);*/
 		if (x == -1)
 		{
 			_free(u, e);
 			_free(c, NULL);
 			exit(2);
 		}
-	}
+	/*}*/
 
 	if (u != NULL)
 	{

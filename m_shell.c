@@ -86,7 +86,7 @@ void non_rec(char *r)
 		}
 
 		z = _scan(c);
-
+		/*printf("z---%s\n", z);*/
 		if (z == NULL)
 		{
 			_free(c, NULL);
@@ -94,13 +94,19 @@ void non_rec(char *r)
 		}
 
 		e = _too(z);
-
+		/*while (e[x] != NULL)*/
+		/*{*/
+			/*printf("e--%d---%s\n", x, e[x]);*/
+			/*x++;*/
+		/*}*/
+		x = 0;
 		if (e == NULL)
 		 {exit(127);
 		}
 		x = 1;
 		m_exit(e, x, NULL, c);
 		u = u_thass(e, z, r);
+		/*printf("u---%s\n", u);*/
 		existance(e, c, u);
 
 }
