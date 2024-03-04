@@ -23,7 +23,7 @@ void m_exit(char **e, int d, char *k, char *c)
 		}
 		a = _atoi(e[1]);
 		if (a == -1)
-		{_printf("hsh: %d: exit: Illegal number: %s\n", d, e[1]);
+		{_printf("./hsh: %d: exit: Illegal number: %s\n", d, e[1]);
 		}
 		else
 		{
