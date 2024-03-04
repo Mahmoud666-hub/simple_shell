@@ -15,7 +15,7 @@ void m_exit(char **e, int d, char *k, char *c)
 		{
 			_free(k, e);
 			_free(c, NULL);
-			exit(d);
+			exit(0);
 		}
 		else
 		while (e[1][l] != '\0')
@@ -23,7 +23,7 @@ void m_exit(char **e, int d, char *k, char *c)
 		}
 		a = _atoi(e[1]);
 		if (a == -1)
-		{_printf("./hsh: %d: exit: Illegal number: %s\n", d, e[1]);
+		{fprintf(stderr, "./hsh: %d: exit: Illegal number: %s\n", d, e[1]);
 		}
 		else
 		{
