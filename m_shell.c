@@ -6,156 +6,17 @@
 */
 
 int main(void)
-{size_t n = 25, d = 0, t = 0;
-	int x = 0;
-	char *u = NULL, *r = NULL, *k = NULL, **e = NULL;
-	char *z = NULL;
-	char *c = malloc(25);
+{
+	char *r = NULL;
 
-	 r = pathen(environ);
-	 k = strdup(r);
+	r = pathen(environ);
+
 if (isatty(STDIN_FILENO))
 {
-	while (isatty(STDIN_FILENO))
-	 {d++;
-		z = NULL;
-		if ((write(1, "$ ", 3)) == -1)
-		 {exit(1);
-		}
-
-		if ((_getline(&c, &n, stdin)) == -1)
-		 {_free(c, NULL);
-		 c = NULL;
-			ctrl_d(x, k);
-		}
-
-		t = strlen(c);
-		if (c[t - 1] == '\n')
-	     {c[t - 1] = '\0';
-		 }
-		z = _scan(c);
-		if (z == NULL)
-		{continue;
-		}
-		e = _too(z);
-		if (e == NULL)
-		 {continue;
-		}
-		 m_exit(e, x, k, c);
-		 if (k == NULL)
-		 {k = strdup(r);
-		 }
-
-		 if (e[0][0] != '/')
-		 {
-			u = paath(z, k);
-		 }
-		 else
-		 {
-			if ((access(e[0], X_OK)) == 0)
-			{
-		 		u =strdup(e[0]);
-			}
-			else
-			{
-			u = NULL;}
-		 }
-
-		 _free(k,NULL);
-		 k = NULL;
-		 
-		if (u != NULL)
-		{m_exx(u, e);
-			_free(u, e);
-			e = NULL;
-			u = NULL;
-		}
-		else
-		{
-			_err(d, e[0], z);
-			_free(NULL, e);
-			e = NULL;
-
-			x = 127;
-		}
-	}
+act_mod(r);
 }
+non_rec(r);
 
-_free(k, NULL);
-k = NULL;
-
-	if ((_getline(&c, &n, stdin)) == -1)
-		 {_free(c, NULL);
-		 c = NULL;
-			ctrl_d(x, k);
-		}
-		t = strlen(c);
-		if (c[t - 1] == '\n')
-	     {c[t - 1] = '\0';
-		 }
-
-		z = _scan(c);
-
-		if (z == NULL)
-		{
-			_free(c, NULL);
-			exit(0);
-		}
-
-		e = _too(z);
-
-		if (e == NULL)
-		 {exit(127);
-		}
-
-		x = 1;
-		m_exit(e, x, k, c);
-
-		if (e[0][0] != '/')
-		 {
-			u = paath(z, k);
-
-		 }
-		 else
-		 {
-			if ((access(e[0], X_OK)) == 0)
-			{
-		 		u =strdup(e[0]);
-			}
-			else
-			{
-			u = NULL;
-			}
-		 }
-
-		 _free(k,NULL);
-		 k = NULL;
-		 
-		if (u != NULL)
-		{m_exx(u, e);
-		if ((access(e[1], F_OK)) == -1)
-			{
-				_free(u, e);
-			_free(c, NULL);
-				exit(2);
-			}
-			_free(u, e);
-			_free(c, NULL);
-			e = NULL;
-			u = NULL;
-		}
-		else
-		{
-			_free(NULL, e);
-			e = NULL;
-			x = 127;
-			_free(c, NULL);
-			exit(2);
-		}
-
-/*_free(u,e);*/
-/*_free(c, NULL);*/
-/*_free(k, NULL);*/
 	return (0);
 }
 
@@ -199,3 +60,93 @@ void m_exx(char *u, char **e)
 	}
 }
 
+/**
+ * non_rec - nonactive mode
+ * @r: parameter
+*/
+void non_rec(char *r)
+{
+	char *z = NULL, *u = NULL;
+	char **e = NULL;
+	int x = 0;
+	size_t t = 0, n = 25;
+	char *c = malloc(25);
+
+		if ((_getline(&c, &n, stdin)) == -1)
+	{
+			_free(c, NULL);
+			c = NULL;
+			_printf("\n");
+			exit(x);
+	}
+
+		t = strlen(c);
+		if (c[t - 1] == '\n')
+		 {c[t - 1] = '\0';
+		}
+
+		z = _scan(c);
+
+		if (z == NULL)
+		{
+			_free(c, NULL);
+			exit(0);
+		}
+
+		e = _too(z);
+
+		if (e == NULL)
+		 {exit(127);
+		}
+		x = 1;
+		m_exit(e, x, NULL, c);
+		u = u_thass(e, z, r);
+		existance(e, c, u);
+
+}
+
+/**
+ * act_mod - actve mode
+ * @r: parameter
+*/
+void act_mod(char *r)
+{char *z = NULL, *u = NULL, *k = NULL;
+	char **e = NULL;
+	size_t t = 0, n = 25, x = 0, d = 0;
+	char *c = malloc(25);
+
+	k = strdup(r);
+	while (isatty(STDIN_FILENO))
+	 {d++;
+		z = NULL;
+		if ((write(1, "$ ", 3)) == -1)
+		exit(2);
+		if ((_getline(&c, &n, stdin)) == -1)
+		 {_free(c, NULL);
+		 c = NULL;
+			ctrl_d(x, k);
+		}
+		t = strlen(c);
+		if (c[t - 1] == '\n')
+		c[t - 1] = '\0';
+		z = _scan(c);
+		if (z == NULL)
+		continue;
+		e = _too(z);
+		 m_exit(e, x, k, c);
+		if (k == NULL)
+		 {k = strdup(r); }
+		u = u_thass(e, z, k);
+		 _free(k, NULL);
+		 k = NULL;
+		if (u != NULL)
+		{m_exx(u, e);
+			_free(u, e);
+			e = NULL;
+			u = NULL; }
+		else
+		{_err(d, e[0], z);
+			_free(NULL, e);
+			e = NULL;
+			x = 127; }
+	} }

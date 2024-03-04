@@ -9,7 +9,7 @@ char **_too(char *s)
 	int i = 0, a = 0, r = 1;
 	char **p = NULL;
 	char *u = NULL;
-	
+
 	while (s[i] != '\0')
 	{
 		if (s[i] == ' ')
@@ -57,10 +57,6 @@ char *paath(char *s, char *b)
 	char *a = NULL;
 	char *tok = NULL;
 
-	/*if (s[0] == '/')
-	{
-		return (s);
-	}*/
 	tok = _strtok(b, ":");
 
 	while (tok != NULL)
@@ -110,3 +106,63 @@ char *pathen(char **t)
 
 	return (pat);
 }
+/**
+ * u_thass - path
+ * @e: parameter
+ * @r: parameter
+ * @z:parameter
+ * Return: pointer
+*/
+char *u_thass(char **e, char *z, char *r)
+{
+	char *u = NULL;
+
+	if (e[0][0] != '/')
+	{
+		u = paath(z, r);
+	}
+	else
+	{
+		if ((access(e[0], X_OK)) == 0)
+		{
+			u = strdup(e[0]);
+		}
+		else
+		{
+			u = NULL;
+		}
+	}
+return (u);
+}
+
+/**
+ * existance - exist of file
+ * @e: parameter
+ * @c: parameter
+ * @u: parameter
+*/
+void existance(char **e, char *c, char *u)
+{
+	if (u != NULL)
+	{
+		m_exx(u, e);
+		if ((access(e[1], F_OK)) == -1)
+		{
+			_free(u, e);
+			_free(c, NULL);
+			exit(2);
+		}
+			_free(u, e);
+			_free(c, NULL);
+			e = NULL;
+			u = NULL;
+	}
+	else
+	{
+		_free(NULL, e);
+		e = NULL;
+		_free(c, NULL);
+		exit(2);
+	}
+}
+

@@ -31,5 +31,13 @@ void _err(int w, char *j, char *c);
 
 char *_scan(char *s);
 
+void non_rec(char *r);
+
+char *u_thass(char **e, char *z, char *r);
+
+void existance(char **e, char *c, char *u);
+
+void act_mod(char *r);
+
 
 #endif

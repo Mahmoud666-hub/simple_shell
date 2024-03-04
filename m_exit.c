@@ -15,7 +15,7 @@ void m_exit(char **e, int d, char *k, char *c)
 		{
 			_free(k, e);
 			_free(c, NULL);
-			exit(0);
+			exit(d);
 		}
 		else
 		while (e[1][l] != '\0')
