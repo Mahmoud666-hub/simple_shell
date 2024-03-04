@@ -10,6 +10,12 @@ char *_scan(char *s)
 {
 	int i = 0;
 	char *b = NULL;
+	if (s[0] == '#')
+	{
+		_free(s, NULL);
+		exit(0);
+	}
+	
 
 	while (s[i] != '\0')
 	{
@@ -22,11 +28,10 @@ char *_scan(char *s)
 		i++;
 	}
 
-
 	if (b == NULL && s[0] != '#')
 	{
 		return (s);
 	}
 
-return (b);
+return (NULL);
 }
