@@ -100,7 +100,6 @@ k = NULL;
 		{exit(127);
 		}
 
-		/*_free(c, NULL);*/
 		e = _too(z);
 
 		if (e == NULL)
@@ -113,6 +112,7 @@ k = NULL;
 		if (e[0][0] != '/')
 		 {
 			u = paath(z, k);
+
 		 }
 		 else
 		 {
@@ -131,6 +131,12 @@ k = NULL;
 		 
 		if (u != NULL)
 		{m_exx(u, e);
+		if ((access(e[1], F_OK)) == -1)
+			{
+				_free(u, e);
+			_free(c, NULL);
+				exit(2);
+			}
 			_free(u, e);
 			_free(c, NULL);
 			e = NULL;
