@@ -120,12 +120,12 @@ char *u_thass(char **e, char *z, char *r)
 
 	if (e[0][0] != '/')
 	{
-		/*if ((access(e[0], X_OK)) == 0)*/
-		/*{*/
-			/*u = strdup(e[0]);*/
-			/*return (u);*/
-		/*}*/
-		/*else*/
+		if ((access(e[0], X_OK)) == 0)
+		{
+			u = strdup(e[0]);
+			return (u);
+		}
+		
 		u = paath(z, r);
 	}
 	else
