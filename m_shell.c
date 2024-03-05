@@ -107,7 +107,8 @@ void non_rec(char *r)
 		/*}*/
 		x = 0;
 		if (e == NULL)
-		 {exit(127);
+		 {_free(c, NULL);
+			exit(0);
 		}
 		x = 1;
 		m_exit(e, x, NULL, c);
