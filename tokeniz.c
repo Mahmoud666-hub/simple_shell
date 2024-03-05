@@ -117,6 +117,7 @@ char *u_thass(char **e, char *z, char *r)
 {
 	char *u = NULL;
 
+
 	if (e[0][0] != '/')
 	{
 		u = paath(z, r);
@@ -175,3 +176,19 @@ void existance(char **e, char *c, char *u)
 	}
 }
 
+/*****/
+void multi(char *c)
+{
+	int x = 1;
+	char *tok = NULL;
+
+	tok = strtok(c, "\n");
+
+	while (tok != NULL)
+	{
+		printf("tok---%d--(%s)\n", x, tok);
+		x++;
+		tok = strtok(NULL, "\n");
+	}
+	
+}

@@ -15,7 +15,10 @@ if (isatty(STDIN_FILENO))
 {
 act_mod(r);
 }
-non_rec(r);
+while (1)
+{
+	non_rec(r);
+}
 
 	return (0);
 }
@@ -67,6 +70,7 @@ void m_exx(char *u, char **e)
 void non_rec(char *r)
 {
 	char *z = NULL, *u = NULL;
+	/*char *w = NULL;*/
 	char **e = NULL;
 	int x = 0;
 	size_t t = 0, n = 25;
@@ -76,10 +80,12 @@ void non_rec(char *r)
 	{
 			_free(c, NULL);
 			c = NULL;
-			_printf("\n");
+			/*_printf("\n");*/
 			exit(x);
 	}
-
+		/*printf("%s", c);*/
+		/*w = strdup(c);*/
+		/*multi(w);*/
 		t = strlen(c);
 		if (c[t - 1] == '\n')
 		 {c[t - 1] = '\0';
@@ -122,7 +128,7 @@ void act_mod(char *r)
 	char *c = malloc(25);
 
 	k = strdup(r);
-	while (isatty(STDIN_FILENO))
+	while (1)
 	 {d++;
 		z = NULL;
 		if ((write(1, "$ ", 3)) == -1)

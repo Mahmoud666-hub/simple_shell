@@ -39,5 +39,7 @@ void existance(char **e, char *c, char *u);
 
 void act_mod(char *r);
 
+void multi(char *c);
+
 
 #endif
