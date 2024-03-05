@@ -57,6 +57,7 @@ char *paath(char *s, char *b)
 	char *a = NULL;
 	char *tok = NULL;
 
+	/*printf("s---(%s)\n", s);*/
 	tok = _strtok(b, ":");
 
 	while (tok != NULL)
@@ -68,6 +69,7 @@ char *paath(char *s, char *b)
 
 			if ((access(a, X_OK)) == 0)
 			{
+				/*printf("a---(%s)\n", a);*/
 				return (a);
 			}
 			else
@@ -116,17 +118,19 @@ char *pathen(char **t)
 char *u_thass(char **e, char *z, char *r)
 {
 	char *u = NULL;
-
-
+	int x = 0;
+	(void)z;
 	if (e[0][0] != '/')
 	{
-		if ((access(e[0], X_OK)) == 0)
+		/*printf("e[0]-re-(%s)\n", e[0]);*/
+		if ((x = access(e[0], X_OK)) == 0)
 		{
+			/*printf("x--%d\n", x);*/
 			u = strdup(e[0]);
 			return (u);
 		}
-		
-		u = paath(z, r);
+		else
+		u = paath(e[0], r);
 	}
 	else
 	{
