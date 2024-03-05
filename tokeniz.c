@@ -120,6 +120,12 @@ char *u_thass(char **e, char *z, char *r)
 
 	if (e[0][0] != '/')
 	{
+		if ((access(e[0], X_OK)) == 0)
+		{
+			u = strdup(e[0]);
+			return (u);
+		}
+		
 		u = paath(z, r);
 	}
 	else
@@ -147,8 +153,8 @@ return (u);
 void existance(char **e, char *c, char *u)
 {
 	int x = 0;
-	/*if(e[1] != NULL)*/
-	/*{x = access(e[1], F_OK);*/
+	/*if(e[0] != NULL)*/
+	/*{x = access(e[0], X_OK);*/
 		if (x == -1)
 		{
 			_free(u, e);

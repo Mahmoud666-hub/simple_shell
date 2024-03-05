@@ -113,7 +113,7 @@ void non_rec(char *r)
 		x = 1;
 		m_exit(e, x, NULL, c);
 		u = u_thass(e, z, r);
-		/*printf("u---%s\n", u);*/
+		printf("u---%s\n", u);
 		existance(e, c, u);
 
 }
