@@ -83,7 +83,7 @@ k = strdup(r);
 		
 
 		/*printf("k--bef--(%s)\n\n", k);*/
-
+		/*if ((isatty(STDIN_FILENO))){*/
 			if (k == NULL)
 			k = strdup(r);
 			/*printf("k--after--(%s)\n", k);*/
