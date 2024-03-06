@@ -19,7 +19,10 @@ k = strdup(r);
 
 		if ((_getline(&c, &n, stdin)) == -1)
 		{
+			if ((isatty(STDIN_FILENO)))
+		{
 			_printf("\n");
+		}
 			if (c != NULL)
 			_free(c, NULL);
 			if (k != NULL)
