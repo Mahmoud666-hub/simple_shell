@@ -62,7 +62,7 @@ void _err(int w, char **e, char *c, char *k)
 {
 			if ((strcmp(e[0], "exit")) != 0)
 			{
-				_printf("./hsh: %d: %s: not found\n", w, e[0]);
+				fprintf(stderr, "./hsh: %d: %s: not found\n", w, e[0]);
 				_free(k, e);
 				_free(c, NULL);
 			}
