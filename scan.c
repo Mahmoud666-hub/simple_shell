@@ -12,11 +12,9 @@ char *_scan(char *s)
 	char *b = NULL;
 	if (s[0] == '#')
 	{
-		_free(s, NULL);
-		exit(0);
+		return (NULL);
 	}
 	
-
 	while (s[i] != '\0')
 	{
 		if (s[i] == '#' && s[i - 1] == ' ')

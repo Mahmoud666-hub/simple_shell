@@ -5,46 +5,56 @@
  * @e: after tok
  * @d: counter
 */
-void m_exit(char **e, int d, char *k, char *c)
+int m_exit(char **e, int d, char *k, int x, char *c, char *u)
 {
 	int a = 0, l = 0;
-	(void)c;
+
+	/*printf("e[0]--(%s)\n", e[0]);*/
 	if ((strcmp(e[0], "exit")) == 0)
 	{
 		if (e[1] == NULL)
 		{
-			_free(k, e);
-			_free(c, NULL);
-			exit(0);
+			if (c != NULL)
+			{_free(c, NULL);}
+
+			if (k != NULL)
+			{_free(k, NULL);}
+
+			if (e != NULL)
+			{_free(NULL, e);}
+
+			if (u != NULL)
+			{_free(u, NULL);}
+
+			exit(x);
 		}
 		else
-		while (e[1][l] != '\0')
-		{l++;
-		}
+
+		/*printf("e[1]--(%s)\n", e[1]);*/
+
+		/*while (e[1][l] != '\0')
+		{
+			l++;
+		}*/
 		a = _atoi(e[1]);
+
 		if (a == -1)
-		{fprintf(stderr, "./hsh: %d: exit: Illegal number: %s\n", d, e[1]);
+		{
+			fprintf(stderr, "./hsh: %d: exit: Illegal number: %s\n", d, e[1]);
+			
+			l = -1;
+			return (l);
+
 		}
 		else
 		{
-			_free(k, e);
 			_free(c, NULL);
+			_free(k, e);
+			_free(u, NULL);
 			exit(a);
 		}
 	}
-}
-
-/**
- * ctrl_d - exit program
- * @x: parameter
- * @k: parameter
- * @e: parameter
-*/
-void ctrl_d(int x, char *k)
-{
-	_printf("\n");
-	_free(k, NULL);
-	exit(x);
+return (l);
 }
 
 /**
@@ -67,11 +77,7 @@ void _free(char *s, char **e)
 		{
 			free(e[n]);
 		}
-		if (e != NULL)
-		{
-			free(e);
-		}
-		
-	}
 
+		free(e);	
+	}
 }

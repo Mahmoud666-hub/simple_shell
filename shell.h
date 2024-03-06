@@ -21,21 +21,21 @@ void m_exx(char *u, char **e);
 
 char *paath(char *s, char *b);
 
-void m_exit(char **e, int d, char *k, char *c);
+int m_exit(char **e, int d, char *k, int x, char *c, char *u);
 
 void _free(char *s, char **e);
 
 char *pathen(char **t);
 
-void _err(int w, char *j, char *c);
+void _err(int w, char **e, char *c, char *k);
 
 char *_scan(char *s);
 
 void non_rec(char *r);
 
-char *u_thass(char **e, char *z, char *r);
+char *u_thass(char **e, char *r);
 
-void existance(char **e, char *c, char *u);
+int existance(char **e, char *c, char *u, int d);
 
 void act_mod(char *r);
 
