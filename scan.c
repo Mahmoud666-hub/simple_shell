@@ -55,7 +55,7 @@ char **semi_colon(char *z)
 		}
 		i++;
 	}
-	printf("a--%d--\n", a);
+	/*printf("a--%d--\n", a);*/
 	if (a == 0 || a == 1)
 	{
 		return (NULL);
