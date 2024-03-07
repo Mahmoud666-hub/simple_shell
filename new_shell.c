@@ -1,15 +1,21 @@
 #include"shell.h"
 /***/
-int main()
+int main(int argc, char **argv, char *envp[])
 {int d = 0, x = 0, i = 0;
 size_t n = 25;
 char *c = NULL, *r = NULL, *k = NULL;
 char *z = NULL, *u = NULL;
 char **e = NULL;
-c = malloc(25);
-r = pathen(environ);
-k = strdup(r);
 
+r = pathen(envp);
+c = malloc(25);
+if (r != NULL)
+{
+	k = strdup(r);
+}
+
+(void)argc;
+(void)argv;
 	while (1)
 	{d++;
 		if ((isatty(STDIN_FILENO)))
@@ -40,15 +46,23 @@ k = strdup(r);
 
 		if ((z = _scan(c)) == NULL)
 		{
+			_free(k, NULL);
 			_free(c, NULL);
 			c = NULL;
+			k = NULL;
 			continue;
 		}
+		
+		
 		/*printf("z---(%s)\n", z);*/
 
 		if ((e = _too(z)) == NULL)
 		continue;
-
+		/*if ((strcmp(z, "env")) == 0)*/
+		/*{*/
+			/*execve("/bin/env", e, NULL);*/
+			/*continue;*/
+		/*}*/
 		i = 0;
 		/*while (e[i] != NULL)*/
 		/*{*/
@@ -80,12 +94,14 @@ k = strdup(r);
 		}
 			continue;
 		}
-		
 
+		/*printf("r------(%s)\n\n\n", r);*/
 		/*printf("k--bef--(%s)\n\n", k);*/
-		/*if ((isatty(STDIN_FILENO))){*/
+		if (r != NULL)
+		{
 			if (k == NULL)
 			k = strdup(r);
+			}
 			/*printf("k--after--(%s)\n", k);*/
 			if (u != NULL)
 			{
@@ -106,11 +122,16 @@ k = strdup(r);
 		k = NULL;
 		/*printf("u---(%s)\n", u);*/
 		
-		existance(e, c, u, d);
+		existance(e, c, u, d, envp);
 
 			_free(u, e);
 			u = NULL;
 			e = NULL;
+			/*if (!(isatty(STDIN_FILENO)))*/
+			/*{*/
+				/*_free(c, NULL);*/
+				/*exit(0);*/
+			/*}*/
 			x = 0;
 	}
 			

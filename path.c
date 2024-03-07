@@ -103,5 +103,7 @@ char *pathen(char **t)
 		i++;
 	}
 
+	
+
 	return (pat);
 }

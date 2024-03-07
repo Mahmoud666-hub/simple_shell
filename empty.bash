@@ -2,7 +2,7 @@
 
 ################################################################################
 # Description for the intranet check (one line, support Markdown syntax)
-# Execute `env`
+# Remove PATH variable and set a `PATH1` variable, and execute `ls`
 
 ################################################################################
 # The variable 'compare_with_sh' IS OPTIONNAL
@@ -21,7 +21,7 @@
 # as follows: "echo $shell_input | ./hsh"
 #
 # It can be empty and multiline
-shell_input="env"
+shell_input="hbtn_ls"
 
 ################################################################################
 # The variable 'shell_params' IS OPTIONNAL
@@ -41,7 +41,10 @@ shell_input="env"
 # Return value: Discarded
 function check_setup()
 {
-	current_env=$(env)
+	cp "/bin/ls" "$PWD/hbtn_ls"
+	export PATH1="$PWD"
+	OLDPATH="$PATH"
+	unset PATH
 
 	return 0
 }
@@ -82,23 +85,10 @@ function sh_setup()
 #     1  -> Check fails
 function check_callback()
 {
-	let status=0
+	status=$1
 
-	# Remove environment variables and set by valgrind from student output
-	content=`$CAT "$OUTPUTFILE"`
-	content=`$ECHO "$content" | $GREP -v -e "^GLIBCPP_FORCE_NEW="`
-	content=`$ECHO "$content" | $GREP -v -e "^GLIBCXX_FORCE_NEW="`
-	content=`$ECHO "$content" | $GREP -v -e "^LD_PRELOAD="`
-	content=`$ECHO "$content" | $GREP -v -e "^LD_LIBRARY_PATH="`
-	content=`$ECHO "$content" | $GREP -v -e "^_="`
-	$ECHO "$content" > $OUTPUTFILE
-
-	# Remove "_" environment variable from expected output
-	content=`$CAT "$EXPECTED_OUTPUTFILE"`
-	content=`$ECHO "$content" | $GREP -v -e "^_="`
-	$ECHO "$content" > $EXPECTED_OUTPUTFILE
-
-	check_diff
+	export PATH="$OLDPATH"
+	$RM -f "$PWD/hbtn_ls"
 
 	return $status
 }
