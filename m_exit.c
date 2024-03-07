@@ -5,7 +5,7 @@
  * @e: after tok
  * @d: counter
 */
-int m_exit(char **e, int d, char *k, int x, char *c, char *u)
+int m_exit(char **e, int d, char *k, int x, char *c, char *u, char**g)
 {
 	int a = 0, l = 0;
 
@@ -25,6 +25,9 @@ int m_exit(char **e, int d, char *k, int x, char *c, char *u)
 
 			if (u != NULL)
 			{_free(u, NULL);}
+
+			if (g != NULL)
+			{_free(NULL, g);}
 
 			exit(x);
 		}
@@ -51,6 +54,10 @@ int m_exit(char **e, int d, char *k, int x, char *c, char *u)
 			_free(c, NULL);
 			_free(k, e);
 			_free(u, NULL);
+
+			if (g != NULL)
+			_free(NULL, g);
+
 			exit(a);
 		}
 	}

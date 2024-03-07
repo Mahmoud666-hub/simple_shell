@@ -21,7 +21,7 @@ void m_exx(char *u, char **e);
 
 char *paath(char *s, char *b);
 
-int m_exit(char **e, int d, char *k, int x, char *c, char *u);
+int m_exit(char **e, int d, char *k, int x, char *c, char *u, char**g);
 
 void _free(char *s, char **e);
 
@@ -41,6 +41,7 @@ void act_mod(char *r);
 
 void env(char *s, char *envp[], char *c, char **e);
 
+char **semi_colon(char *z);
 
 
 #endif
