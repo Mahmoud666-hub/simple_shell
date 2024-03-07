@@ -6,16 +6,16 @@ size_t n = 25;
 char *c = NULL, *r = NULL, *k = NULL;
 char *z = NULL, *u = NULL;
 char **e = NULL;
+(void)argc;
+(void)argv;
 
-r = pathen(envp);
+r = pathen(environ);
 c = malloc(25);
 if (r != NULL)
 {
 	k = strdup(r);
 }
 
-(void)argc;
-(void)argv;
 	while (1)
 	{d++;
 		if ((isatty(STDIN_FILENO)))
@@ -52,9 +52,6 @@ if (r != NULL)
 			k = NULL;
 			continue;
 		}
-		
-		
-		/*printf("z---(%s)\n", z);*/
 
 		if ((e = _too(z)) == NULL)
 		continue;
@@ -69,7 +66,7 @@ if (r != NULL)
 			/*printf("e--%d--(%s)\n", i, e[i]);*/
 			/*i++;*/
 		/*}*/
-
+		env(z, envp, c, e);
 		i = m_exit(e, d, k, x, c, u);
 		/*printf("\n\n\n---i--(%d)--\n\n", i);*/
 		if (i == -1)
@@ -108,7 +105,7 @@ if (r != NULL)
 				_free(u, NULL);
 				u = NULL;
 			}
-
+			
 		if ((u = u_thass(e, k)) == NULL)
 		{
 			_err(d, e, c, k);
@@ -120,9 +117,9 @@ if (r != NULL)
 		}
 		_free(k, NULL);
 		k = NULL;
-		/*printf("u---(%s)\n", u);*/
+
 		
-		existance(e, c, u, d, envp);
+		existance(e, u);
 
 			_free(u, e);
 			u = NULL;

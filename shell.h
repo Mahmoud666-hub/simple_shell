@@ -8,7 +8,7 @@
 #include <stdarg.h>
 #include<sys/types.h>
 #include<sys/wait.h>
-/*extern char **environ;*/
+extern char **environ;
 
 ssize_t _getline(char **p, size_t *n, FILE *f);
 char *_strtok(char *s, const char *e);
@@ -17,7 +17,7 @@ int _printf(const char *format, ...);
 void ctrl_d(int x, char *k);
 int _atoi(char *h);
 
-void m_exx(char *u, char **e, char *envp[], char *c);
+void m_exx(char *u, char **e);
 
 char *paath(char *s, char *b);
 
@@ -35,9 +35,11 @@ void non_rec(char *r);
 
 char *u_thass(char **e, char *r);
 
-int existance(char **e, char *c, char *u, int d, char *envp[]);
+int existance(char **e, char *u);
 
 void act_mod(char *r);
+
+void env(char *s, char *envp[], char *c, char **e);
 
 
 

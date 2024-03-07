@@ -5,15 +5,14 @@
  * @c: parameter
  * @u: parameter
 */
-int existance(char **e, char *c, char *u, int d, char *envp[])
+int existance(char **e, char *u)
 {
 	int x = 0;
-    (void)d;
-	(void)c;
+
 
 	if (u != NULL)
 	{
-		m_exx(u, e, envp, c);
+		m_exx(u, e);
 		
 	}
 	else
@@ -33,16 +32,16 @@ return (x);
  * @e: parameter
 */
 
-void m_exx(char *u, char **e, char *envp[], char *c)
+void m_exx(char *u, char **e)
 {
 	pid_t z = 0;
-(void)c;
+
 	z = fork();
 	if (z != -1)
 	{
 		if (z == 0)
 		{
-			execve(u, e, envp);
+			execve(u, e, environ);
 		}
 		else if (z != 0)
 		{

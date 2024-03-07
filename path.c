@@ -9,22 +9,22 @@
 char *u_thass(char **e, char *r)
 {
 	char *u = NULL;
-	int x = 0;
+	/*int x = 0;*/
 
-	if (e[0][0] != '/')
+	if (e[0][0] != '/' || e[0][0] != '.')
 	{
 
-		if ((x = access(e[0], X_OK)) == 0)
-		{
+		/*if ((x = access(e[0], X_OK)) == 0)*/
+		/*{*/
 			/*printf("e[0]--path--(%s)\n", e[0]);*/
-			u = strdup(e[0]);
-			return (u);
-		}
-		else
-		{
+			/*u = strdup(e[0]);*/
+			/*return (u);*/
+		/*}*/
+		/*else*/
+		/*{*/
 		u = paath(e[0], r);
 		return (u);
-		}
+		/*}*/
 	}
 	else
 	{
@@ -36,10 +36,10 @@ char *u_thass(char **e, char *r)
 		else
 		{
 			u = NULL;
-			if (!(isatty(STDIN_FILENO)))
-        {
-            exit(2);
-        }
+			/*if (!(isatty(STDIN_FILENO)))*/
+        /*{*/
+            /*exit(2);*/
+       /*}*/
 			return (u);
 		}
 	}
@@ -100,10 +100,28 @@ char *pathen(char **t)
 			pat = t[i] + 5;
 			break;
 		}
+
 		i++;
 	}
 
+	return (pat);
+}
+
+/****/
+void env(char *s, char *envp[], char *c, char **e)
+{
+	int i = 0;
+
+	if ((strcmp(s, "env")) == 0)
+	{
+		while (envp[i] != NULL)
+		{
+			_printf("%s\n", envp[i]);
+			i++;
+		}
+		_free(c, e);
+		exit(0);
+	}
 	
 
-	return (pat);
 }
