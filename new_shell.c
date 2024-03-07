@@ -66,7 +66,10 @@ if (r != NULL)
 			/*printf("e--%d--(%s)\n", i, e[i]);*/
 			/*i++;*/
 		/*}*/
-		env(z, envp, c, e);
+		if (r == NULL)
+		{
+			env(z, envp, c, e);
+		}
 		i = m_exit(e, d, k, x, c, u);
 		/*printf("\n\n\n---i--(%d)--\n\n", i);*/
 		if (i == -1)
