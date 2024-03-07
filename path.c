@@ -11,7 +11,7 @@ char *u_thass(char **e, char *r)
 	char *u = NULL;
 	/*int x = 0;*/
 
-	if (e[0][0] != '/' || e[0][0] != '.')
+	if (e[0][0] != '/' && e[0][0] != '.')
 	{
 
 		/*if ((x = access(e[0], X_OK)) == 0)*/
